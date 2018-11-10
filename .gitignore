@@ -1,0 +1,9 @@
+# Root:
+/.idea
+/build
+/demo
+/dist
+/node_modules
+
+# Wildcards:
+!.gitkeep
