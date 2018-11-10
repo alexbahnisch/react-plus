@@ -165,13 +165,7 @@
     "object-literal-sort-keys": true,
     "prefer-const": true,
     "prefer-readonly": true,
-    "trailing-comma": [
-      true,
-      {
-        "multiline": "always",
-        "singleline": "never"
-      }
-    ],
+    "trailing-comma": false,
     "align": true,
     "array-type": [
       true,

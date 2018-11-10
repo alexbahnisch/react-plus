@@ -1,0 +1,40 @@
+
+.root {
+    overflow: hidden;
+    position: relative;
+}
+
+.child1 {
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-name: marquee1;
+    animation-timing-function: linear;
+    display: inline-block;
+    position: absolute;
+}
+
+@keyframes marquee1 {
+    0%   { transform: translate(-100%, 0); }
+    100% { transform: translate(0, 0); }
+}
+
+.child2 {
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-name: marquee2;
+    animation-timing-function: linear;
+    display: inline-block;
+}
+
+@keyframes marquee2 {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(100%, 0); }
+}
+
+.block {
+    display: block;
+}
+
+.inline {
+    display: inline-block;
+}
