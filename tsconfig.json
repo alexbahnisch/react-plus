@@ -5,13 +5,14 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "module": "commonjs",
     "moduleResolution": "node",
-    "noEmit": true,
     "outDir": "./build/",
     "pretty": true,
-    "rootDir": "./src/package/",
     "resolveJsonModule": true,
     "sourceMap": false,
     "strict": true,
@@ -19,10 +20,6 @@
     "target": "es5"
   },
   "include": [
-    "./src/package/**/*.ts",
-    "./src/package/**/*.tsx"
-  ],
-  "exclude": [
-    "*.json"
+    "src/package/**/*"
   ]
 }

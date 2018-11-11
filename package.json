@@ -12,26 +12,26 @@
   "bugs": {
     "url": "https://github.com/alexbahnisch/react-plus/issues"
   },
-  "main": "./build/demo/main.js",
-  "private": true,
+  "main": "./src/package/index.ts",
+  "private": false,
   "keywords": [
     "react",
     "typescript"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "classnames": "^2.2.6"
+  },
   "devDependencies": {
     "@types/classnames": "^2.2.6",
     "@types/node": "^10.11.7",
     "@types/react": "^16.4.16",
     "@types/react-dom": "^16.0.9",
     "awesome-typescript-loader": "^5.2.1",
-    "classnames": "^2.2.6",
     "copy-webpack-plugin": "^4.5.3",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
-    "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "tslint": "^5.11.0",
@@ -51,10 +51,11 @@
     "demo:watch": "cross-env CONFIG=demo NODE_ENV=development webpack --devtool inline-source-map --progress --watch",
     "lint:test": "tslint --project .",
     "lint:fix": "tslint --fix --project .",
-    "package": "npm run package:compile && npm run package:bundle -p && npm run package:artifact",
+    "package": "npm run package:compile && npm run package:bundle && npm run package:artifact",
     "package:artifact": "node ./scripts/pre-package.js && cd ./dist/ && npm pack ../build/",
     "package:bundle": "cross-env CONFIG=package MIN=true webpack -p && cross-env CONFIG=package webpack && rm ./build/zzz.*",
     "package:clean": "rm -rf ./build",
-    "package:compile": "npm run package:clean && tsc --declaration"
+    "package:compile": "npm run package:clean && tsc --declaration",
+    "publish": "cd ./build/ && npm publish"
   }
 }
