@@ -10,4 +10,4 @@ services:
       - 8080:80
     volumes:
       - ./conf/.nginx:/etc/nginx/nginx.conf
-      - ./demo:/app
+      - ./app:/app

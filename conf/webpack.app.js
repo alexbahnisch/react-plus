@@ -27,9 +27,9 @@ if (process.env.NODE_ENV !== "production") {
 
 module.exports = {
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
-  entry: path.resolve(__dirname, "../src/demo/main.tsx"),
+  entry: path.resolve(__dirname, "../src/app/main.tsx"),
   output: {
-    path: path.resolve(__dirname, "../demo/"),
+    path: path.resolve(__dirname, "../app/"),
     filename: "bundle.js"
   },
   resolve: {

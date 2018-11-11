@@ -26,4 +26,4 @@ function copyPackageJson(sourceDir, destinationDir) {
   copyFiles(sourceDir, destinationDir, ...files);
   copyPackageJson(sourceDir, destinationDir);
   makeDir(distDir)
-})("../", "../build/", "../demo", "LICENSE", "README.md");
+})("../", "../build/", "LICENSE", "README.md");

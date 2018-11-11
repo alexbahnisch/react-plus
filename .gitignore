@@ -1,8 +1,7 @@
 # Root:
 /.idea
+/app
 /build
-/demo
-/dist
 /node_modules
 
 # Wildcards:
