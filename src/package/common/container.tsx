@@ -1,5 +1,5 @@
 "use strict"
-import classNames from "classnames"
+import * as classNames from "classnames"
 import * as React from "react"
 
 // @ts-ignore
