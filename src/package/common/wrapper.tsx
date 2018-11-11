@@ -29,6 +29,7 @@ export class Wrapper extends React.PureComponent<IProps> {
   }
 
   public render() {
+    // noinspection JSUnusedLocalSymbols
     const {className, style, ...other} = this.props.children.props
 
     return React.cloneElement(React.Children.only(this.props.children),
