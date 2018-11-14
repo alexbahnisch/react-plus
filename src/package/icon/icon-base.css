@@ -1,0 +1,15 @@
+
+.root {
+    border: 2px solid white;
+    cursor: pointer;
+    fill: white;
+    padding: 6px;
+}
+
+.root:hover {
+    fill: grey;
+}
+
+.root:active {
+    fill: blue;
+}

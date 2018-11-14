@@ -1,0 +1,20 @@
+
+.xSmall {
+    margin: 4px;
+}
+
+.small {
+    margin: 8px;
+}
+
+.regular {
+    margin: 12px;
+}
+
+.large {
+    margin: 16px;
+}
+
+.xLarge {
+    margin: 20px;
+}

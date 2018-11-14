@@ -2,6 +2,8 @@
 import * as React from "react"
 
 import { Container, Marquee, MaskImage } from "../../package"
+import { AccountLogin } from "../../package/icon/icon-base"
+import { CheckBox } from "../../package/input/check-box"
 
 // @ts-ignore
 import CSS = require("./app.css")
@@ -28,6 +30,17 @@ export class App extends React.Component<IProps> {
           <MaskImage inline src="img/laptop.png" style={{background: "red", margin: 12, height: 100, width: 100}}/>
           <MaskImage fitContainer inline src="img/laptop.png" style={{background: "red", margin: 12, height: 100, width: 100}}/>
         </Container>
+        <div>
+          <CheckBox checked={true} onChange={(event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => {
+            console.log(event, checked)
+          }}/>
+          <CheckBox label={"Whoop"} checked={false} onChange={(event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => {
+            console.log(event, checked)
+          }}/>
+        </div>
+        <div>
+          <AccountLogin size={28}/>
+        </div>
       </div>
     )
   }
