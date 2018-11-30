@@ -32,7 +32,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("css-loader?modules&importLoaders=1&localIdentName=[name]-[local]-[hash:base64:5]")
+        loader: ExtractTextPlugin.extract("css-loader?modules&importLoaders=1&localIdentName=react-plus-[name]-[local]-[hash:base64:5]")
       }
     ]
   },

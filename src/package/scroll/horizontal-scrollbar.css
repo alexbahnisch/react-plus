@@ -1,0 +1,16 @@
+
+.root {
+    background: transparent;
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: calc(100% - 10px);
+    height: 10px;
+}
+
+.child {
+    background: rgba(125, 125, 125, 0.5);
+    position: absolute;
+    bottom: 0;
+    height: 10px;
+}

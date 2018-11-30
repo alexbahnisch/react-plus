@@ -1,0 +1,11 @@
+
+.root {
+    overflow: hidden !important;
+    position: relative;
+}
+
+.container {
+    position: absolute !important;
+    height: fit-content !important;
+    width: fit-content !important;
+}
