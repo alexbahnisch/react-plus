@@ -1,26 +1,22 @@
 "use strict";
-const fs = require("fs");
 const path = require("path");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 
-// noinspection JSCheckFunctionSignatures, JSUnresolvedFunction
-let packageJson = JSON.parse(fs.readFileSync("./package.json"));
-let name = `${packageJson.name}-${packageJson.version}${process.env.MIN ? ".min" : ""}`;
-let plugins = [new ExtractTextPlugin(`${name}.css`)];
+let plugins = [
+  new MiniCssExtractPlugin({
+    filename: "styles.css"
+  })
+];
 
-if (!process.env.MIN) {
-  plugins.push(new ExtractTextPlugin("styles.css"));
-}
 
 module.exports = {
-  mode: process.env.MIN ? "production" : "development",
+  mode: "production",
   entry: path.resolve(__dirname, "../src/package/index.ts"),
   output: {
     path: path.resolve(__dirname, "../build/"),
     filename: `zzz.js`
   },
-  devtool: process.env.MIN ? "source-map" : undefined,
   resolve: {
     extensions: [".js", ".ts", ".tsx"]
   },
@@ -32,7 +28,16 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("css-loader?modules&importLoaders=1&localIdentName=react-plus-[name]-[local]-[hash:base64:5]")
+        loader: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              localIdentName: "react-plus-[name]-[local]-[hash:base64:5]",
+              modules: true
+            }
+          }
+        ]
       }
     ]
   },

@@ -1,11 +1,13 @@
 "use strict";
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const LiveReloadPlugin = require("webpack-livereload-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 
+let filename;
 let plugins = [
   new CopyWebpackPlugin([
     {from: "./src/assets/css", to: "css"},
@@ -13,24 +15,35 @@ let plugins = [
     {from: "./src/assets/img", to: "img"},
     {from: "./src/assets/js", to: "js"}
   ]),
-  new ExtractTextPlugin("styles.css"),
   new HtmlWebpackPlugin({
     template: "./src/assets/index.html"
   })
 ];
 
+
 if (process.env.NODE_ENV !== "production") {
+  filename = "[name].js";
   plugins.push(
-    new LiveReloadPlugin({appendScriptTag: true})
+    new LiveReloadPlugin({appendScriptTag: true}),
+    new MiniCssExtractPlugin({filename: "styles.css"})
+  );
+} else {
+  filename = "[name].[contenthash].js";
+  plugins.push(
+    new MiniCssExtractPlugin({filename: "styles.[contenthash].css"}),
+    new OptimizeCssAssetsPlugin({})
   );
 }
 
+
 module.exports = {
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
-  entry: path.resolve(__dirname, "../src/app/main.tsx"),
+  entry: {
+    bundle: path.resolve(__dirname, "../src/app/main.tsx")
+  },
   output: {
     path: path.resolve(__dirname, "../app/"),
-    filename: "bundle.js"
+    filename
   },
   resolve: {
     extensions: [".js", ".ts", ".tsx"]
@@ -43,7 +56,16 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("css-loader?modules&importLoaders=1&localIdentName=[name]-[local]-[hash:base64:5]")
+        loader: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              localIdentName: "react-plus-[name]-[local]-[hash:base64:5]",
+              modules: true
+            }
+          }
+        ]
       }
     ]
   },

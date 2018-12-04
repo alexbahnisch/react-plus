@@ -30,8 +30,10 @@
     "copy-webpack-plugin": "^4.5.3",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
+    "live-server": "^1.2.1",
+    "mini-css-extract-plugin": "^0.4.5",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "tslint": "^5.11.0",
@@ -46,16 +48,16 @@
   },
   "scripts": {
     "clean": "npm run app:clean && npm run package:clean",
-    "app:build": "npm run app:clean && cross-env CONFIG=app webpack --progress -p",
+    "app:build": "npm run app:clean && cross-env CONFIG=app NODE_ENV=production webpack --progress -p",
     "app:clean": "rm -rf ./app",
     "app:watch": "cross-env CONFIG=app NODE_ENV=development webpack --devtool inline-source-map --progress --watch",
     "lint:test": "tslint --project ./tsconfig.lint.json",
     "lint:fix": "tslint --fix --project ./tsconfig.lint.json",
-    "package": "npm run package:build && npm run package:build",
     "package:build": "npm run package:clean && npm run package:compile && npm run package:bundle && node ./scripts/pre-package.js",
-    "package:bundle": "cross-env CONFIG=package MIN=true webpack -p && cross-env CONFIG=package webpack && rm ./build/zzz.*",
+    "package:bundle": "cross-env CONFIG=package webpack && rm ./build/zzz.*",
     "package:clean": "rm -rf ./build",
     "package:compile": "tsc --declaration",
-    "package:publish": "cd ./build/ && npm publish"
+    "package:publish": "cd ./build/ && npm publish",
+    "server": "live-server ./app --entry-file=./index.html --watch"
   }
 }
