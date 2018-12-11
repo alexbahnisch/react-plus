@@ -1,0 +1,16 @@
+
+.root {
+    height: calc(100vh - 72px);
+    width: 100%;
+    overflow: hidden;
+}
+
+.light {
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+.dark {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}

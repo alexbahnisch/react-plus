@@ -1,9 +1,8 @@
 
 .root {
-    background: black;
     font-family: Roboto, sans-serif;
     font-size: 25px;
-    position: absolute;
+    position: relative;
     height: 100vh;
     width: 100vw;
 }
