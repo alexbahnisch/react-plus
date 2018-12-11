@@ -1,18 +1,22 @@
 
 .root {
+    border: 0 solid;
+    border-right: 1px solid;
+    box-sizing: border-box;
     display: inline-block;
     height: calc(100vh - 72px);
-    width: calc(100vw - 280px);
-    overflow: hidden;
+    width: 280px;
     vertical-align: top;
 }
 
 .light {
     background: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+    color: rgb(20, 0, 0);
 }
 
 .dark {
     background: rgb(0, 0, 0);
+    border-color: rgb(255, 255, 255);
     color: rgb(255, 255, 255);
 }

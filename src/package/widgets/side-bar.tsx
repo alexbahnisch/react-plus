@@ -5,7 +5,7 @@ import * as React from "react"
 import { Children, ThemeType } from "../core"
 
 // @ts-ignore
-import CSS = require("./top-bar.css")
+import CSS = require("./side-bar.css")
 
 
 interface IProps {
@@ -14,7 +14,7 @@ interface IProps {
 }
 
 
-export class TopBar extends React.PureComponent<IProps> {
+export class SideBar extends React.PureComponent<IProps> {
   public static defaultProps = {
     themeType: "light"
   }
@@ -22,9 +22,9 @@ export class TopBar extends React.PureComponent<IProps> {
   public render() {
     const {children, themeType} = this.props
     return (
-      <header className={classNames(CSS.root, themeType === "dark" ? CSS.dark : CSS.light)}>
+      <div className={classNames(CSS.root, themeType === "dark" ? CSS.dark : CSS.light)}>
         {children}
-      </header>
+      </div>
     )
   }
 }

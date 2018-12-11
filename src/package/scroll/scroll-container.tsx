@@ -2,8 +2,9 @@
 import * as classNames from "classnames"
 import * as React from "react"
 
-import { Children, Size } from "../core"
+import { Children } from "../core"
 import { bound0 } from "../core/math"
+import { Size } from "../core/size"
 import { HorizontalScrollbar } from "./horizontal-scrollbar"
 import { VerticalScrollbar } from "./vertical-scrollbar"
 

@@ -3,15 +3,14 @@ import * as React from "react"
 
 import { ScrollContainer } from "../../package/scroll/scroll-container"
 
+// @ts-ignore
+import CSS = require("./scroll-container-view.css")
+
 
 const GRID_SIZE = 20
 
 
-interface IProps {
-}
-
-
-export class ScrollContainerView extends React.Component<IProps> {
+export class ScrollContainerView extends React.Component {
 
   public renderRow() {
     const children = []
@@ -42,7 +41,7 @@ export class ScrollContainerView extends React.Component<IProps> {
 
   public render(): React.ReactNode {
     return (
-      <div style={{margin: 12}}>
+      <div className={CSS.root}>
         <ScrollContainer style={{height: 500, width: 500, border: "1px solid black"}}>
           {this.renderRow()}
         </ScrollContainer>

@@ -15,13 +15,16 @@ interface IProps {
 
 
 export class MainContainer extends React.PureComponent<IProps> {
-  public defaultProps = {
+  public static defaultProps = {
     themeType: "light"
   }
 
   public render() {
+    const {children, themeType} = this.props
     return (
-      <div className={classNames(CSS.root, this.props.themeType === "dark" ? CSS.dark : CSS.light)}/>
+      <div className={classNames(CSS.root, themeType === "dark" ? CSS.dark : CSS.light)}>
+        {children}
+      </div>
     )
   }
 }
