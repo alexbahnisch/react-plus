@@ -7,9 +7,7 @@ import { Theme, ThemeProvider } from "../package/theme"
 import { createElement } from "./utils"
 import { App } from "./views/app"
 
-
 import "./main.css"
-
 
 ReactDOM.render(
   <BrowserRouter basename={"/"}>

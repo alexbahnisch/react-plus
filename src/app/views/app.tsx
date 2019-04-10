@@ -16,7 +16,7 @@ interface IProps extends RouteComponentProps {
 class BaseApp extends React.PureComponent<IProps> {
 
   public render(): React.ReactNode {
-    const {location} = this.props
+    const { location } = this.props
 
     let redirect = null
     if (location.pathname === "/") {

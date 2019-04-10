@@ -1,8 +1,8 @@
 {
   "extends": "./tsconfig",
   "include": [
-    "./src/demo/**/*.ts",
-    "./src/demo/**/*.tsx",
+    "./src/app/**/*.ts",
+    "./src/app/**/*.tsx",
     "./src/package/**/*.ts",
     "./src/package/**/*.tsx"
   ]

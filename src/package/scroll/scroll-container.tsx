@@ -119,7 +119,9 @@ export class ScrollContainer extends React.PureComponent<IProps, IState> {
 
   public componentDidMount(): void {
     this.componentDidRender()
-    document.addEventListener("error", () => {console.log("Argh")})
+    document.addEventListener("error", () => {
+      console.log("Argh")
+    })
   }
 
   public componentDidUpdate(): void {
