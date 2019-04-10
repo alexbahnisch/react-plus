@@ -10,10 +10,8 @@ import { ScrollContainerView } from "./scroll-container-view"
 // @ts-ignore
 import CSS = require("./app.css")
 
-
 interface IProps extends RouteComponentProps {
 }
-
 
 class BaseApp extends React.PureComponent<IProps> {
 

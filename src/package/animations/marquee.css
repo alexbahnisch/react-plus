@@ -5,7 +5,6 @@
 }
 
 .child1 {
-    animation-duration: 200s;
     animation-iteration-count: infinite;
     animation-name: marquee1;
     animation-timing-function: linear;
@@ -19,7 +18,6 @@
 }
 
 .child2 {
-    animation-duration: 200s;
     animation-iteration-count: infinite;
     animation-name: marquee2;
     animation-timing-function: linear;

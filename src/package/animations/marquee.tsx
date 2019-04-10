@@ -12,6 +12,7 @@ interface IProps {
   id?: string
   className?: string
   inline: boolean
+  speed: number
   style?: React.CSSProperties
   children: WrapperChild
 }
@@ -19,11 +20,12 @@ interface IProps {
 
 export class Marquee extends React.PureComponent<IProps> {
   public static defaultProps = {
-    inline: false
+    inline: false,
+    speed: 200
   }
 
   public render() {
-    const {id, className, inline, style, children} = this.props
+    const {id, className, inline, speed, style, children} = this.props
 
     return (
       <div
@@ -35,10 +37,10 @@ export class Marquee extends React.PureComponent<IProps> {
         )}
         style={style}
       >
-        <Wrapper className={CSS.child1}>
+        <Wrapper className={CSS.child1} style={{animationDuration: `${speed}s`}}>
           {children}
         </Wrapper>
-        <Wrapper className={CSS.child2}>
+        <Wrapper className={CSS.child2} style={{animationDuration: `${speed}s`}}>
           {children}
         </Wrapper>
       </div>
