@@ -2,12 +2,10 @@
 import * as classNames from "classnames"
 import * as React from "react"
 
-
 interface IChildProps {
   className?: string
   style?: React.CSSProperties
 }
-
 
 interface IProps {
   children: React.ReactElement<IChildProps>
@@ -15,9 +13,7 @@ interface IProps {
   style?: React.CSSProperties
 }
 
-
 export type WrapperChild = React.ReactElement<IChildProps>
-
 
 export class Wrapper extends React.PureComponent<IProps> {
 
@@ -30,7 +26,7 @@ export class Wrapper extends React.PureComponent<IProps> {
 
   public render() {
     // noinspection JSUnusedLocalSymbols
-    const {className, style, ...other} = this.props.children.props
+    const { className, style, ...other } = this.props.children.props
 
     return React.cloneElement(React.Children.only(this.props.children),
       {

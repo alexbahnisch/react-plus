@@ -1,13 +1,13 @@
-"use strict";
-const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+"use strict"
+const path = require("path")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 
 let plugins = [
   new MiniCssExtractPlugin({
     filename: "styles.css"
   })
-];
+]
 
 
 module.exports = {
@@ -15,7 +15,7 @@ module.exports = {
   entry: path.resolve(__dirname, "../src/package/index.ts"),
   output: {
     path: path.resolve(__dirname, "../build/"),
-    filename: `zzz.js`
+    filename: "zzz.js"
   },
   resolve: {
     extensions: [".js", ".ts", ".tsx"]
@@ -42,4 +42,4 @@ module.exports = {
     ]
   },
   plugins: plugins
-};
+}

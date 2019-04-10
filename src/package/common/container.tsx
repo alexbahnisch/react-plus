@@ -5,7 +5,6 @@ import * as React from "react"
 // @ts-ignore
 import CSS = require("./container.css")
 
-
 interface IProps {
   id?: string
   children: React.ReactNode | React.ReactNode[]
@@ -14,14 +13,13 @@ interface IProps {
   style?: React.CSSProperties
 }
 
-
 export class Container extends React.PureComponent<IProps> {
   public static defaultProps = {
     inline: false
   }
 
   public render(): React.ReactNode {
-    const {id, children, className, inline, style} = this.props
+    const { id, children, className, inline, style } = this.props
 
     return (
       <div id={id} style={style} className={classNames(

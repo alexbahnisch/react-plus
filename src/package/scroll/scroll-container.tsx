@@ -11,7 +11,6 @@ import { VerticalScrollbar } from "./vertical-scrollbar"
 // @ts-ignore
 import CSS = require("./scroll-container.css")
 
-
 interface IProps {
   id?: string
   children: Children
@@ -20,14 +19,12 @@ interface IProps {
   style?: React.CSSProperties
 }
 
-
 interface IState {
   childSize: Size,
   rootSize: Size,
   horizontalScroll: number
   verticalScroll: number
 }
-
 
 export class ScrollContainer extends React.PureComponent<IProps, IState> {
   public static displayName = "ScrollContainer"
@@ -49,17 +46,17 @@ export class ScrollContainer extends React.PureComponent<IProps, IState> {
   }
 
   private getChildStyle(): React.CSSProperties {
-    const {childSize, rootSize} = this.state
+    const { childSize, rootSize } = this.state
     const style = {
       left: 0,
       top: 0
     }
 
-    if (childSize.width! > rootSize.width!) {
+    if (childSize.width > rootSize.width) {
       style.left = -this.state.horizontalScroll / this.getHorizontalRatio()
     }
 
-    if (childSize.height! > rootSize.height!) {
+    if (childSize.height > rootSize.height) {
       style.top = -this.state.verticalScroll / this.getVerticalRatio()
     }
 
@@ -102,15 +99,15 @@ export class ScrollContainer extends React.PureComponent<IProps, IState> {
     }
   }
 
-  private handleHorizontalScroll = (scroll: number) => {
-    this.setState({horizontalScroll: scroll})
+  private readonly handleHorizontalScroll = (scroll: number) => {
+    this.setState({ horizontalScroll: scroll })
   }
 
-  private handleVerticalScroll = (scroll: number) => {
-    this.setState({verticalScroll: scroll})
+  private readonly handleVerticalScroll = (scroll: number) => {
+    this.setState({ verticalScroll: scroll })
   }
 
-  private handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+  private readonly handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
     const deltaX = event.deltaX
     const deltaY = event.deltaY
 
@@ -130,7 +127,7 @@ export class ScrollContainer extends React.PureComponent<IProps, IState> {
   }
 
   public render() {
-    const {id, children, className, style} = this.props
+    const { id, children, className, style } = this.props
 
     return (
       <div

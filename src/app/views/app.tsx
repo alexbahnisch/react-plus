@@ -1,7 +1,7 @@
 "use strict"
 import * as React from "react"
 
-import { BrowserRouter, Link, Redirect, Route, RouteComponentProps, withRouter } from "react-router-dom"
+import { Link, Redirect, Route, RouteComponentProps, withRouter } from "react-router-dom"
 import { MainContainer } from "../../package/widgets/main-container"
 import { SideBar } from "../../package/widgets/side-bar"
 import { TopBar } from "../../package/widgets/top-bar"
@@ -39,6 +39,5 @@ class BaseApp extends React.PureComponent<IProps> {
     )
   }
 }
-
 
 export const App = withRouter(BaseApp)

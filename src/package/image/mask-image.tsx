@@ -5,7 +5,6 @@ import * as React from "react"
 // @ts-ignore
 import CSS = require("./mask-image.css")
 
-
 interface IProps {
   id?: string
   className?: string
@@ -15,7 +14,6 @@ interface IProps {
   src: string
 }
 
-
 export class MaskImage extends React.PureComponent<IProps> {
   public static defaultProps = {
     fitContainer: false,
@@ -23,7 +21,7 @@ export class MaskImage extends React.PureComponent<IProps> {
   }
 
   public render() {
-    const {id, className, fitContainer, inline, src, style} = this.props
+    const { id, className, fitContainer, inline, src, style } = this.props
 
     return (
       <div

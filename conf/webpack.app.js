@@ -1,13 +1,13 @@
-"use strict";
-const path = require("path");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const LiveReloadPlugin = require("webpack-livereload-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+"use strict"
+const path = require("path")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const LiveReloadPlugin = require("webpack-livereload-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 
 
-let filename;
+let filename
 let plugins = [
   new CopyWebpackPlugin([
     {from: "./src/assets/css", to: "css"},
@@ -18,21 +18,21 @@ let plugins = [
   new HtmlWebpackPlugin({
     template: "./src/assets/index.html"
   })
-];
+]
 
 
 if (process.env.NODE_ENV !== "production") {
-  filename = "[name].js";
+  filename = "[name].js"
   plugins.push(
     new LiveReloadPlugin({appendScriptTag: true}),
     new MiniCssExtractPlugin({filename: "styles.css"})
-  );
+  )
 } else {
-  filename = "[name].[contenthash].js";
+  filename = "[name].[contenthash].js"
   plugins.push(
     new MiniCssExtractPlugin({filename: "styles.[contenthash].css"}),
     new OptimizeCssAssetsPlugin({})
-  );
+  )
 }
 
 
@@ -70,4 +70,4 @@ module.exports = {
     ]
   },
   plugins: plugins
-};
+}

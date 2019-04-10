@@ -16,11 +16,9 @@ export function bound(value: number, lowerBound: number, upperBound: number) {
   return value
 }
 
-
 export function bound0(value: number, upperBound: number) {
   return bound(value, 0, upperBound)
 }
-
 
 export function bound01(value: number) {
   return bound(value, 0, 1)

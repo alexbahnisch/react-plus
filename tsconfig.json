@@ -11,15 +11,18 @@
     ],
     "module": "commonjs",
     "moduleResolution": "node",
+    "noEmit": true,
     "outDir": "./build/",
     "pretty": true,
+    "rootDir": ".",
     "resolveJsonModule": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "strict": true,
     "suppressImplicitAnyIndexErrors": false,
     "target": "es5"
   },
   "include": [
-    "src/package/**/*"
+    "./src/package/**/*.ts",
+    "./src/package/**/*.tsx"
   ]
 }

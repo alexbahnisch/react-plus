@@ -7,10 +7,8 @@ import { polygon } from "../core/svg"
 // @ts-ignore
 import CSS = require("./vertical-scrollbar.css")
 
-
 const barWidth = 10
 const gap = 2
-
 
 interface IProps {
   hasHorizontalScroll: boolean
@@ -20,17 +18,16 @@ interface IProps {
   onScroll(scroll: number): void
 }
 
-
 export class VerticalScrollbar extends React.PureComponent<IProps> {
   public static defaultProps = {
     hasHorizontalScroll: false,
     scrollSpeed: 0.05
   }
 
-  private initialPosition: number | null = null
+  private initialPosition: number = 0
 
   private getStyle() {
-    const {value, length, limit} = this.props
+    const { value, length, limit } = this.props
     let clipPath: string | undefined
 
     if (this.props.hasHorizontalScroll) {
@@ -49,30 +46,30 @@ export class VerticalScrollbar extends React.PureComponent<IProps> {
     }
   }
 
-  private handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
+  private readonly handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation()
     document.addEventListener("mouseup", this.handleMouseUp)
     document.addEventListener("mousemove", this.handleMouseMove)
     this.initialPosition = event.clientY - this.props.value
   }
 
-  private handleMouseMove = (event: MouseEvent) => {
+  private readonly handleMouseMove = (event: MouseEvent) => {
     event.stopPropagation()
-    this.props.onScroll(bound(event.clientY - this.initialPosition!, 0, this.props.limit))
+    this.props.onScroll(bound(event.clientY - this.initialPosition, 0, this.props.limit))
   }
 
-  private handleMouseUp = (event: MouseEvent) => {
+  private readonly handleMouseUp = (event: MouseEvent) => {
     event.stopPropagation()
     document.removeEventListener("mouseup", this.handleMouseUp)
     document.removeEventListener("mousemove", this.handleMouseMove)
-    this.initialPosition = null
+    this.initialPosition = 0
   }
 
-  private handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+  private readonly handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation()
   }
 
-  private handleContainerClick = (event: React.MouseEvent<HTMLDivElement>) => {
+  private readonly handleContainerClick = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation()
     this.props.onScroll(bound(event.clientY, 0, this.props.limit))
   }

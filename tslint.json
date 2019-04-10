@@ -1,5 +1,13 @@
 {
   "defaultSeverity": "error",
+  "linterOptions": {
+    "exclude": [
+      "**/*.json"
+    ]
+  },
+  "rulesDirectory": [
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ],
   "rules": {
     "adjacent-overload-signatures": true,
     "member-access": true,
@@ -38,7 +46,7 @@
       true,
       "allow-declarations"
     ],
-    "no-non-null-assertion": false,
+    "no-non-null-assertion": true,
     "no-parameter-reassignment": false,
     "no-reference": true,
     "no-unnecessary-type-assertion": true,
@@ -122,19 +130,20 @@
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "no-void-expression": true,
-    "prefer-conditional-expression": true,
+    "prefer-conditional-expression": false,
     "prefer-object-spread": true,
     "radix": true,
     "restrict-plus-operands": true,
     "strict-boolean-expressions": [
       true,
+      "allow-boolean-or-undefined",
       "allow-null-union",
       "allow-undefined-union"
     ],
     "strict-type-predicates": true,
     "switch-default": true,
     "triple-equals": true,
-    "use-default-type-parameter": true,
+    "use-default-type-parameter": false,
     "use-isnan": true,
     "cyclomatic-complexity": [
       true,
@@ -153,7 +162,7 @@
     ],
     "max-file-line-count": [
       true,
-      300
+      500
     ],
     "max-line-length": [
       true,
@@ -208,14 +217,11 @@
     ],
     "match-default-export-name": true,
     "newline-before-return": false,
-    "newline-per-chained-call": true,
+    "newline-per-chained-call": false,
     "new-parens": true,
     "no-angle-bracket-type-assertion": true,
     "no-boolean-literal-compare": true,
-    "no-consecutive-blank-lines": [
-      true,
-      2
-    ],
+    "no-consecutive-blank-lines": true,
     "no-irregular-whitespace": true,
     "no-parameter-properties": true,
     "no-redundant-jsdoc": true,
@@ -279,6 +285,7 @@
       "check-type",
       "check-type-operator",
       "check-typecast"
-    ]
+    ],
+    "object-curly-spacing": "always"
   }
 }

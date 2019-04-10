@@ -1,19 +1,19 @@
 "use strict"
 
-
 export interface ISize {
   height: number | null
   width: number | null
 }
 
-
 export class Size implements ISize {
-  public readonly height: number
-  public readonly width: number
+  public readonly height: number = 0
+  public readonly width: number = 0
 
   constructor(element?: HTMLDivElement | null) {
-    this.height = !!element ? element.clientHeight : 0
-    this.width = !!element ? element.clientWidth : 0
+    if (element !== null && element !== undefined) {
+      this.height = element.clientHeight
+      this.width = element.clientWidth
+    }
     Object.freeze(this)
   }
 

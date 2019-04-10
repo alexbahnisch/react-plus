@@ -7,7 +7,6 @@ import { Wrapper, WrapperChild } from "../common/wrapper"
 // @ts-ignore
 import CSS = require("./marquee.css")
 
-
 interface IProps {
   id?: string
   className?: string
@@ -17,7 +16,6 @@ interface IProps {
   children: WrapperChild
 }
 
-
 export class Marquee extends React.PureComponent<IProps> {
   public static defaultProps = {
     inline: false,
@@ -25,7 +23,7 @@ export class Marquee extends React.PureComponent<IProps> {
   }
 
   public render() {
-    const {id, className, inline, speed, style, children} = this.props
+    const { id, className, inline, speed, style, children } = this.props
 
     return (
       <div
@@ -37,10 +35,10 @@ export class Marquee extends React.PureComponent<IProps> {
         )}
         style={style}
       >
-        <Wrapper className={CSS.child1} style={{animationDuration: `${speed}s`}}>
+        <Wrapper className={CSS.child1} style={{ animationDuration: `${speed}s` }}>
           {children}
         </Wrapper>
-        <Wrapper className={CSS.child2} style={{animationDuration: `${speed}s`}}>
+        <Wrapper className={CSS.child2} style={{ animationDuration: `${speed}s` }}>
           {children}
         </Wrapper>
       </div>

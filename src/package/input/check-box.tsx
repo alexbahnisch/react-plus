@@ -7,9 +7,7 @@ import { SpacingTypes, ThemedComponentProps, withTheme } from "../theme"
 // @ts-ignore
 import * as CSS from "./check-box.css"
 
-
-// noinspection TsLint
-interface _IProps {
+interface IBaseProps {
   id?: string
   label?: string
   name?: string
@@ -22,24 +20,22 @@ interface _IProps {
   onChange(event: React.ChangeEvent<HTMLInputElement>, checked: boolean): void
 }
 
-
-type IProps = _IProps & ThemedComponentProps
-
+type IProps = IBaseProps & ThemedComponentProps
 
 // noinspection TsLint
-class _CheckBox extends React.PureComponent<IProps> {
+class BaseCheckBox extends React.PureComponent<IProps> {
   public static displayName = "CheckBox"
   public static defaultProps = {
     disable: false
   }
 
-  private handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  private readonly handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.props.onChange(event, event.target.checked)
   }
 
   public renderLabel() {
-    const {label, spacing, theme} = this.props
-    if (!label) {
+    const { label, spacing, theme } = this.props
+    if (label === undefined) {
       return null
     }
 
@@ -51,10 +47,10 @@ class _CheckBox extends React.PureComponent<IProps> {
   }
 
   public render() {
-    const {id, name, className, checked, disable, spacing, style, theme} = this.props
+    const { id, name, className, checked, disable, spacing, style, theme } = this.props
 
     return (
-      <React.Fragment>
+      <>
         <input
           id={id}
           name={name}
@@ -66,9 +62,9 @@ class _CheckBox extends React.PureComponent<IProps> {
           onChange={this.handleChange}
         />
         {this.renderLabel()}
-      </React.Fragment>
+      </>
     )
   }
 }
 
-export const CheckBox = withTheme<_IProps>(_CheckBox)
+export const CheckBox = withTheme<IBaseProps>(BaseCheckBox)
